@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới Thiệu Thành Viên – Nhóm 2</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Page-specific styles */
+        .member-hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a252f 60%, #0d1b2a 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 68px 24px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 55px;
+            background: var(--bg);
+            clip-path: ellipse(55% 100% at 50% 100%);
+        }
+
+        .member-hero h1 {
+            font-size: clamp(1.8rem, 4vw, 2.7rem);
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .member-hero p {
+            opacity: 0.85;
+            max-width: 520px;
+            margin: 0 auto;
+            font-size: 1rem;
+        }
+
+        .group-info-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            border: 2px solid var(--border);
+            box-shadow: var(--shadow-sm);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            margin-bottom: 52px;
+            text-align: center;
+        }
+
+        .group-info-item .gi-num {
+            font-size: 1.9rem;
+            font-weight: 900;
+            color: var(--red);
+            line-height: 1;
+        }
+
+        .group-info-item .gi-label {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 5px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .member-card-extended {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .member-card-extended:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .member-card-top {
+            padding: 32px 24px 24px;
+            text-align: center;
+        }
+
+        .member-card-body {
+            padding: 0 24px 28px;
+        }
+
+        .member-detail-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.88rem;
+        }
+
+        .member-detail-row:last-child {
+            border-bottom: none;
+        }
+
+        .member-detail-row .d-icon {
+            font-size: 1rem;
+            flex-shrink: 0;
+            width: 22px;
+            text-align: center;
+        }
+
+        .member-detail-row .d-label {
+            color: var(--text-muted);
+            min-width: 70px;
+            font-size: 0.8rem;
+        }
+
+        .member-detail-row .d-val {
+            font-weight: 600;
+        }
+
+        .team-note {
+            background: linear-gradient(135deg, #fff9e6, #fffdf5);
+            border: 2px solid var(--gold);
+            border-radius: var(--radius);
+            padding: 32px;
+            text-align: center;
+            margin-top: 52px;
+        }
+
+        .team-note h3 {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .team-note p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <span class="flag">🇻🇳</span>
+                Cảnh Đẹp Việt Nam
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="gioi-thieu.html" class="active">Giới Thiệu</a></li>
+                <li><a href="ban-do.html">Bản Đồ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <header class="member-hero">
+        <div class="hero-badge">👥 Nhóm 2 · Lớp 12A5</div>
+        <h1>Giới Thiệu Thành Viên</h1>
+        <p>Những con người đam mê tìm hiểu và chia sẻ vẻ đẹp của quê hương Việt Nam</p>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+        <div class="section">
+
+            <!-- Group info summary -->
+            <div class="group-info-card">
+                <div class="group-info-item">
+                    <div class="gi-num">7</div>
+                    <div class="gi-label">Thành viên</div>
+                </div>
+                <div class="group-info-item">
+                    <div class="gi-num">12A5</div>
+                    <div class="gi-label">Lớp học</div>
+                </div>
+                <div class="group-info-item">
+                    <div class="gi-num">2026</div>
+                    <div class="gi-label">Năm học</div>
+                </div>
+                <div class="group-info-item">
+                    <div class="gi-num">1</div>
+                    <div class="gi-label">Dự án chung</div>
+                </div>
+            </div>
+
+            <!-- Section heading -->
+            <div class="section-head">
+                <h2>Các Thành Viên Trong Nhóm</h2>
+                <div class="divider"></div>
+            
+
+            <!-- Member grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 26px;">
+
+                <!-- Member 1 -->
+                <div class="member-card-extended">
+                    <div class="member-card-top">
+                        <div class="member-avatar av-1" style="margin:0 auto 16px;">P</div>
+                        <div class="member-name">Phạm Duy Minh</div>
+                        <div class="member-role">Nhóm Trưởng</div>
+                    </div>
+                    <div class="member-card-body">
+                        <div class="member-detail-row">
+                            <span class="d-icon">📌</span>
+                            <span class="d-label">Nhiệm vụ:</span>
+                            <span class="d-val">Quản lý dự án, lập kế hoạch</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="member-card-extended">
+                    <div class="member-card-top">
+                        <div class="member-avatar av-2" style="margin:0 auto 16px;">Đ</div>
+                        <div class="member-name">Đỗ Minh Hưng</div>
+                        <div class="member-role">Thiết Kế Giao Diện</div>
+                    </div>
+                    <div class="member-card-body">
+                        <div class="member-detail-row">
+                            <span class="d-icon">📌</span>
+                            <span class="d-label">Nhiệm vụ:</span>
+                            <span class="d-val">Thiết kế HTML/CSS, layout</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="member-card-extended">
+                    <div class="member-card-top">
+                        <div class="member-avatar av-3" style="margin:0 auto 16px;">N</div>
+                        <div class="member-name">Nguyễn Hoàng Nam</div>
+                        <div class="member-role">Nghiên Cứu Nội Dung</div>
+                    </div>
+                    <div class="member-card-body">
+                        <div class="member-detail-row">
+                            <span class="d-icon">📌</span>
+                            <span class="d-label">Nhiệm vụ:</span>
+                            <span class="d-val">Thu thập và biên soạn thông tin</span>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <!-- Member 4 -->
+                <div class="member-card-extended">
+                    <div class="member-card-top">
+                        <div class="member-avatar av-4" style="margin:0 auto 16px;">D</div>
+                        <div class="member-name">Nguyễn Nhật Duy</div>
+                        <div class="member-role">Phụ Trách Bản Đồ</div>
+                    </div>
+                    <div class="member-card-body">
+                        <div class="member-detail-row">
+                            <span class="d-icon">📌</span>
+                            <span class="d-label">Nhiệm vụ:</span>
+                            <span class="d-val">Xây dựng CSS + HTML</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 5 -->
+                <div class="member-card-extended">
+                    <div class="member-card-top">
+                        <div class="member-avatar av-5" style="margin:0 auto 16px;">A</div>
+                        <div class="member-name">Nguyễn Quang Anh</div>
+                        <div class="member-role">Nội dung</div>
+                    </div>
+                    <div class="member-card-body">
+                        <div class="member-detail-row">
+                            <span class="d-icon">📌</span>
+                            <span class="d-label">Nhiệm vụ:</span>
+                            <span class="d-val">Kiểm tra nội dung</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 6 -->
+                <div class="member-card-extended">
+                    <div class="member-card-top">
+                        <div class="member-avatar av-6" style="margin:0 auto 16px;">L</div>
+                        <div class="member-name">Nguyễn Gia Lâm</div>
+                        <div class="member-role"> Hỗ Trợ lập trình</div>
+                    </div>
+                    <div class="member-card-body">
+                        <div class="member-detail-row">
+                            <span class="d-icon">📌</span>
+                            <span class="d-label">Nhiệm vụ:</span>
+                            <span class="d-val">Trình bày, hỗ trợ các thành viên</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Member 7 -->   
+                <div class="member-card-extended">
+                    <div class="member-card-top">
+                        <div class="member-avatar av-7" style="margin:0 auto 16px;">N</div>
+                        <div class="member-name">Nguyễn Anh Ngọc</div>
+                        <div class="member-role">Thuyết Trình</div>
+                    </div>
+                    <div class="member-card-body">
+                        <div class="member-detail-row">
+                            <span class="d-icon">📌</span>
+                            <span class="d-label">Nhiệm vụ:</span>
+                            <span class="d-val">Thuyết trình nội dung</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- end section -->
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-logo">🇻🇳 Cảnh Đẹp Việt Nam</div>
+        <p>Dự án học tập của <strong style="color:var(--gold-light)">Nhóm 2 · Lớp 12A5</strong></p>
+        <p style="margin-top:6px;"> 2026</p>
+    </footer>
+
+</body>
+
+</html>

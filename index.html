@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cảnh Đẹp Việt Nam – Trang Chủ</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Page-specific styles */
+        .welcome-strip {
+            background: linear-gradient(90deg, #fff9e6, #fffdf5, #fff9e6);
+            border-top: 3px solid var(--gold);
+            border-bottom: 3px solid var(--gold);
+            padding: 18px 24px;
+            text-align: center;
+            color: var(--dark);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .welcome-strip strong { color: var(--red); }
+
+        /* Quote section */
+        .quote-section {
+            background: linear-gradient(135deg, var(--red), var(--red-dark));
+            color: var(--white);
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .quote-section blockquote {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto 16px;
+            line-height: 1.7;
+            opacity: 0.95;
+        }
+
+        .quote-section cite {
+            font-style: normal;
+            opacity: 0.7;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* Destinations preview */
+        .dest-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .dest-item {
+            aspect-ratio: 1/1;
+            display: flex;
+            align-items: flex-end;
+            padding: 22px;
+            text-decoration: none;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+            transition: flex 0.4s;
+        }
+
+        .dest-item.hanoi   { background: linear-gradient(180deg, rgba(192,57,43,0.3) 0%, rgba(146,43,33,0.85) 100%), #c0392b; }
+        .dest-item.danang  { background: linear-gradient(180deg, rgba(26,82,118,0.3) 0%, rgba(13,60,100,0.85) 100%), #1a5276; }
+        .dest-item.hcmc    { background: linear-gradient(180deg, rgba(30,132,73,0.3) 0%, rgba(20,90,50,0.85) 100%), #1e8449; }
+
+        .dest-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -70%);
+            font-size: 3.5rem;
+            opacity: 0.7;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .dest-item:hover .dest-icon {
+            opacity: 0.95;
+            transform: translate(-50%, -75%) scale(1.1);
+        }
+
+        .dest-info h3 { font-size: 1rem; font-weight: 800; margin-bottom: 2px; }
+        .dest-info p  { font-size: 0.78rem; opacity: 0.8; }
+
+        @media (max-width: 600px) {
+            .dest-grid { grid-template-columns: 1fr; }
+            .dest-item { aspect-ratio: 3/1; }
+            .dest-icon { top: 50%; transform: translate(-50%, -50%); }
+            .dest-item:hover .dest-icon { transform: translate(-50%, -50%) scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+            <span class="flag">🇻🇳</span>
+            Cảnh Đẹp Việt Nam
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Trang Chủ</a></li>
+            <li><a href="gioi-thieu.html">Giới Thiệu</a></li>
+            <li><a href="ban-do.html">Bản Đồ</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ===== WELCOME STRIP ===== -->
+<div class="welcome-strip">
+    ✨ Chào mừng bạn đến với <strong>Cảnh Đẹp Việt Nam</strong> – Khám phá vẻ đẹp bất tận của đất nước hình chữ S ✨
+</div>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <div class="hero-badge">🌏 Khám Phá &nbsp;·&nbsp; Trải Nghiệm &nbsp;·&nbsp; Yêu Thương</div>
+    <h1 class="hero-title">Việt Nam – Vẻ Đẹp<br><em>Ngàn Năm</em></h1>
+    <p class="hero-desc">
+        Từ những ruộng bậc thang Sa Pa huyền ảo đến bờ biển Đà Nẵng xanh biếc,
+        từ phố cổ Hà Nội đến sự sôi động của Sài Gòn – đất nước Việt Nam mang trong mình
+        vẻ đẹp đa dạng và phong phú khó nơi nào sánh được.
+    </p>
+    <div class="hero-actions">
+        <a href="ban-do.html" class="btn btn-gold">🗺️ Xem Bản Đồ</a>
+    </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<div class="stats-bar">
+    <div class="stats-inner">
+        <div>
+            <div class="stat-num">63</div>
+            <div class="stat-label">Tỉnh thành phố</div>
+        </div>
+        <div>
+            <div class="stat-num">3,260</div>
+            <div class="stat-label">Km bờ biển</div>
+        </div>
+        <div>
+            <div class="stat-num">8</div>
+            <div class="stat-label">Di sản UNESCO</div>
+        </div>
+        <div>
+            <div class="stat-num">54</div>
+            <div class="stat-label">Dân tộc anh em</div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== FEATURE CARDS ===== -->
+<div class="section">
+    <div class="section-head">
+        <h2>Khám Phá Việt Nam</h2>
+        <div class="divider"></div>
+        <p>Hành trình từ Bắc vào Nam qua những địa danh nổi tiếng và hấp dẫn nhất</p>
+    </div>
+
+    <div class="feature-grid">
+        <a href="ban-do.html" class="feature-card">
+            <div class="feature-card-top">
+                <span class="icon">🗺️</span>
+                <h3>Bản Đồ Tương Tác</h3>
+            </div>
+            <div class="feature-card-body">
+                <p>Khám phá Hà Nội, Đà Nẵng và TP. Hồ Chí Minh qua bản đồ Việt Nam sinh động. Click vào từng điểm để xem thông tin chi tiết.</p>
+                <span class="feature-card-link">Xem bản đồ →</span>
+            </div>
+        </a>
+
+        <a href="thong-tin.html" class="feature-card">
+            <div class="feature-card-top">
+                <span class="icon">🏯</span>
+                <h3>Văn Hóa &amp; Di Sản</h3>
+            </div>
+            <div class="feature-card-body">
+                <p>Hàng nghìn năm lịch sử với những di tích, lễ hội, phong tục tập quán phong phú. Việt Nam là một trong những nền văn minh lâu đời nhất Đông Nam Á.</p>
+                <span class="feature-card-link">Tìm hiểu →</span>
+            </div>
+        </a>
+
+        <a href="gioi-thieu.html" class="feature-card">
+            <div class="feature-card-top">
+                <span class="icon">👥</span>
+                <h3>Giới Thiệu Nhóm</h3>
+            </div>
+            <div class="feature-card-body">
+                <p>Gặp gỡ những thành viên đam mê nghiên cứu và chia sẻ về vẻ đẹp Việt Nam. Chúng tôi mang đến cho bạn những thông tin chân thực và hữu ích nhất.</p>
+                <span class="feature-card-link">Gặp nhóm →</span>
+            </div>
+        </a>
+    </div>
+</div>
+
+<!-- ===== DESTINATION PREVIEW ===== -->
+<div class="section" style="padding-top: 0;">
+    <div class="section-head">
+        <h2>Ba Điểm Đến Nổi Bật</h2>
+        <div class="divider"></div>
+        <p>Ba thành phố lớn tiêu biểu cho vẻ đẹp ba miền Bắc – Trung – Nam</p>
+    </div>
+
+    <div class="dest-grid">
+        <a href="ban-do.html#modal-hanoi" class="dest-item hanoi">
+            <div class="dest-icon">🏛️</div>
+            <div class="dest-info">
+                <h3>Hà Nội</h3>
+                <p>Thủ đô · Miền Bắc</p>
+            </div>
+        </a>
+        <a href="ban-do.html#modal-danang" class="dest-item danang">
+            <div class="dest-icon">🌉</div>
+            <div class="dest-info">
+                <h3>Đà Nẵng</h3>
+                <p>Thành phố biển · Miền Trung</p>
+            </div>
+        </a>
+        <a href="ban-do.html#modal-hcmc" class="dest-item hcmc">
+            <div class="dest-icon">🌆</div>
+            <div class="dest-info">
+                <h3>TP. Hồ Chí Minh</h3>
+                <p>Thành phố lớn nhất · Miền Nam</p>
+            </div>
+        </a>
+    </div>
+</div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="footer-logo"> Cảnh Đẹp Việt Nam</div>
+    <p>Dự án học tập của <strong style="color:var(--gold-light)">Nhóm 2 · Lớp 12A5</strong></p>
+</footer>
+
+
+   
