@@ -105,7 +105,8 @@ a { color: inherit; }
    HERO BANNER
    ============================================ */
 .hero {
-    background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 55%, #3d0c0c 100%);
+    background-image: url(img/hồ\ gươm.jpg);
+    background-position: center;
     color: var(--white);
     text-align: center;
     padding: 80px 24px 90px;
@@ -238,15 +239,29 @@ a { color: inherit; }
     box-shadow: var(--shadow);
 }
 
-.feature-card-top {
+.feature-card-left {
     padding: 40px 24px 30px;
-    background: linear-gradient(135deg, var(--red), var(--red-dark));
+    background-image: url("img/dinh độc lập.jpg");
+    background-size: cover;
+    background-position: center;
     color: var(--white);
     text-align: center;
 }
 
-.feature-card-top .icon { font-size: 3rem; margin-bottom: 10px; display: block; }
-.feature-card-top h3 { font-size: 1.1rem; font-weight: 700; }
+.feature-card-left .icon { font-size: 3rem; margin-bottom: 10px; display: block; }
+.feature-card-left h3 { font-size: 1.1rem; font-weight: 700; }
+
+.feature-card-right {
+    padding: 40px 24px 30px;
+   background-image: url("img/cầu vàng.jpg");
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    text-align: center;
+}
+
+.feature-card-right .icon { font-size: 3rem; margin-bottom: 10px; display: block; }
+.feature-card-right h3 { font-size: 1.1rem; font-weight: 700; }
 
 .feature-card-body {
     padding: 22px 24px 28px;
@@ -463,7 +478,9 @@ a { color: inherit; }
    MAP PAGE
    ============================================ */
 .map-hero {
-    background: linear-gradient(135deg, #0d3b69 0%, #1a5276 55%, #1f618d 100%);
+background-image: url("img/iotlink-map4d-ban-do-ve-tinh-viet-nam-01.webp");
+background-position: top center;
+background-size: cover;
     color: var(--white);
     text-align: center;
     padding: 60px 24px 74px;
@@ -675,9 +692,15 @@ a { color: inherit; }
     position: relative;
 }
 
-.modal-header.hanoi   { background: linear-gradient(135deg, #c0392b, #7b241c); }
-.modal-header.danang  { background: linear-gradient(135deg, #1a5276, #0e3460); }
-.modal-header.hcmc    { background: linear-gradient(135deg, #1e8449, #145a32); }
+.modal-header.hanoi   { background-image:url("img/hồ tây.jpg");
+background-position: center;
+background-size: cover; }
+.modal-header.danang  { background-image:url("img/cầu rồng.jpg");
+background-position: center;
+background-size: cover; }
+.modal-header.hcmc    { background-image:url("img/dinh độc lập.jpg");
+background-position: center;
+background-size: cover; }
 
 .modal-header .modal-icon { font-size: 2.8rem; margin-bottom: 8px; display: block; }
 .modal-header h2 { font-size: 1.75rem; font-weight: 900; margin-bottom: 4px; }
