@@ -106,6 +106,7 @@ a { color: inherit; }
    ============================================ */
 .hero {
     background-image: url(img/hồ\ gươm.jpg);
+    background-size: cover;
     background-position: center;
     color: var(--white);
     text-align: center;
