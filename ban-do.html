@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -133,6 +134,7 @@
                 left: 0;
                 opacity: 1;
             }
+
             100% {
                 width: 120px;
                 height: 120px;
@@ -209,44 +211,82 @@
             transform: translateX(5px);
         }
 
-        .legend-dot-red   { background: #c0392b; }
-        .legend-dot-blue  { background: #1a5276; }
-        .legend-dot-green { background: #1e8449; }
+        .legend-dot-red {
+            background: #c0392b;
+        }
+
+        .legend-dot-blue {
+            background: #1a5276;
+        }
+
+        .legend-dot-green {
+            background: #1e8449;
+        }
 
         .legend-entry .leg-dot {
             width: 16px;
             height: 16px;
             border-radius: 50%;
             border: 2px solid white;
-            box-shadow: 0 0 0 3px rgba(0,0,0,0.12);
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
             flex-shrink: 0;
         }
 
-        .legend-entry .leg-text h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 2px; }
-        .legend-entry .leg-text p  { font-size: 0.8rem; color: var(--text-muted); }
+        .legend-entry .leg-text h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .legend-entry .leg-text p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
 
         /* ============================================================
            MODAL OVERRIDES (page-specific colours handled in style.css)
            ============================================================ */
 
         /* highlight which legend entry is active when modal open */
-        .location-modal:target ~ .map-container .legend-entry[data-target="modal-hanoi"],
-        .location-modal:target ~ .map-container .legend-entry[data-target="modal-danang"],
-        .location-modal:target ~ .map-container .legend-entry[data-target="modal-hcmc"] {
+        .location-modal:target~.map-container .legend-entry[data-target="modal-hanoi"],
+        .location-modal:target~.map-container .legend-entry[data-target="modal-danang"],
+        .location-modal:target~.map-container .legend-entry[data-target="modal-hcmc"] {
             border-color: var(--red);
         }
 
         /* ============================================================
            MAP SVG COLOURS  (overrides for this page)
            ============================================================ */
-        .vn-sea   { fill: #c8e9f8; }
-        .vn-land  { fill: #c8dfc8; stroke: #5d8a66; stroke-width: 1.2; stroke-linejoin: round; }
-        .vn-label { font-size: 8px; fill: #2c3e50; font-weight: 600; font-family: 'Segoe UI', sans-serif; }
+        .vn-sea {
+            fill: #c8e9f8;
+        }
+
+        .vn-land {
+            fill: #c8dfc8;
+            stroke: #5d8a66;
+            stroke-width: 1.2;
+            stroke-linejoin: round;
+        }
+
+        .vn-label {
+            font-size: 8px;
+            fill: #2c3e50;
+            font-weight: 600;
+            font-family: 'Segoe UI', sans-serif;
+        }
 
         /* pin colours per city */
-        .pin-hanoi  .pin-dot { fill: #c0392b; }
-        .pin-danang .pin-dot { fill: #1a5276; }
-        .pin-hcmc   .pin-dot { fill: #1e8449; }
+        .pin-hanoi .pin-dot {
+            fill: #c0392b;
+        }
+
+        .pin-danang .pin-dot {
+            fill: #1a5276;
+        }
+
+        .pin-hcmc .pin-dot {
+            fill: #1e8449;
+        }
 
         .pin-dot {
             stroke: white;
@@ -254,10 +294,13 @@
             cursor: pointer;
             transition: r 0.15s;
         }
-        .marker-group:hover .pin-dot { r: 10; }
+
+        .marker-group:hover .pin-dot {
+            r: 10;
+        }
 
         .pin-shadow {
-            fill: rgba(0,0,0,0.18);
+            fill: rgba(0, 0, 0, 0.18);
             rx: 4;
         }
 
@@ -290,384 +333,314 @@
         }
     </style>
 </head>
+
 <body class="map-page-wrap">
 
-<!-- ===== NAVIGATION ===== -->
-<nav class="navbar">
-    <div class="nav-inner">
-        <a href="index.html" class="nav-logo">
-            <span class="flag">⭐</span>
-            Cảnh Đẹp Việt Nam
-        </a>
-        <ul class="nav-links">
-            <li><a href="index.html">Trang Chủ</a></li>
-            <li><a href="gioi-thieu.html">Giới Thiệu</a></li>
-            <li><a href="ban-do.html" class="active">Bản Đồ</a></li>
-        </ul>
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <span class="flag">⭐</span>
+                Cảnh Đẹp Việt Nam
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="gioi-thieu.html">Giới Thiệu</a></li>
+                <li><a href="ban-do.html" class="active">Bản Đồ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <header class="map-hero">
+        <div class="hero-badge">🗺️ Bản Đồ Tương Tác</div>
+        <h1>Giới Thiệu Cảnh Đẹp Việt Nam</h1>
+        <p>Bản đồ Việt Nam với các điểm tham quan nổi tiếng. Click vào từng điểm để khám phá thông tin!</p>
+        <div class="map-hint">
+            <span>👆</span> Click vào các điểm đỏ trên bản đồ để xem thông tin
+        </div>
+    </header>
+
+    <!-- ===== CLICK INSTRUCTION STRIP ===== -->
+    <div class="click-banner">
+        <span>🔴 Ba điểm tham quan:</span>
+        <span class="badge">Hà Nội</span>
+        <span class="badge" style="background:#1a5276;">Đà Nẵng</span>
+        <span class="badge" style="background:#1e8449;">TP. Hồ Chí Minh</span>
+        <span>— Click vào bản đồ hoặc tên thành phố để xem chi tiết</span>
     </div>
-</nav>
 
-<!-- ===== HERO ===== -->
-<header class="map-hero">
-    <div class="hero-badge">🗺️ Bản Đồ Tương Tác</div>
-    <h1>Giới Thiệu Cảnh Đẹp Việt Nam</h1>
-    <p>Bản đồ Việt Nam với các điểm tham quan nổi tiếng. Click vào từng điểm để khám phá thông tin!</p>
-    <div class="map-hint">
-        <span>👆</span> Click vào các điểm đỏ trên bản đồ để xem thông tin
-    </div>
-</header>
-
-<!-- ===== CLICK INSTRUCTION STRIP ===== -->
-<div class="click-banner">
-    <span>🔴 Ba điểm tham quan:</span>
-    <span class="badge">Hà Nội</span>
-    <span class="badge" style="background:#1a5276;">Đà Nẵng</span>
-    <span class="badge" style="background:#1e8449;">TP. Hồ Chí Minh</span>
-    <span>— Click vào bản đồ hoặc tên thành phố để xem chi tiết</span>
-</div>
-
-<!-- ============================================================
+    <!-- ============================================================
      CSS :target MODALS  (must be BEFORE the content they overlay)
      ============================================================ -->
 
-<!-- MODAL – HÀ NỘI -->
-<div class="location-modal" id="modal-hanoi">
-    <div class="modal-box">
-        <div class="modal-header hanoi">
-            <a href="#" class="modal-close" title="Đóng">✕</a>
-            <span class="modal-icon">🏛️</span>
-            <h2>Hà Nội</h2>
-            <div class="city-sub">Thủ đô · Miền Bắc · 21°02'B – 105°51'Đ</div>
-        </div>
-        <div class="modal-body">
-            <p class="modal-desc">
-                Hà Nội – thủ đô của nước Cộng hòa Xã hội Chủ nghĩa Việt Nam, là trái tim
-                chính trị, văn hóa và trung tâm lớn về giáo dục, khoa học của cả nước.
-                Thành phố hơn <strong>1.000 năm tuổi</strong> lưu giữ trong mình hàng trăm di tích
-                lịch sử, công trình kiến trúc và danh lam thắng cảnh.
-            </p>
-            <div class="modal-facts">
-                <div class="fact">
-                    <div class="f-label">Dân số</div>
-                    <div class="f-val">~ 8,5 triệu người</div>
-                </div>
-                <div class="fact">
-                    <div class="f-label">Diện tích</div>
-                    <div class="f-val">3.358,6 km²</div>
-                </div>
-                <div class="fact">
-                    <div class="f-label">Thành lập</div>
-                    <div class="f-val">1010 (Thăng Long)</div>
-                </div>
-                <div class="fact">
-                    <div class="f-label">Khí hậu</div>
-                    <div class="f-val">Nhiệt đới gió mùa</div>
-                </div>
+    <!-- MODAL – HÀ NỘI -->
+    <div class="location-modal" id="modal-hanoi">
+        <div class="modal-box">
+            <div class="modal-header hanoi">
+                <a href="#" class="modal-close" title="Đóng">✕</a>
+                <span class="modal-icon">🏛️</span>
+                <h2>Hà Nội</h2>
+                <div class="city-sub">Thủ đô · Miền Bắc · 21°02'B – 105°51'Đ</div>
             </div>
-            <div class="modal-spots-title">🌟 Điểm tham quan nổi bật:</div>
-            <div class="spots-tags">
-                <span>🏯 Văn Miếu – Quốc Tử Giám</span>
-                <span>🌊 Hồ Hoàn Kiếm</span>
-                <span>🏛️ Lăng Chủ tịch Hồ Chí Minh</span>
-                <span>🕌 Tháp Rùa</span>
-                <span>🎪 Phố cổ Hà Nội 36 phố phường</span>
-                <span>🌸 Hồ Tây</span>
+            <div class="modal-body">
+                <p class="modal-desc">
+                    Hà Nội – thủ đô của nước Cộng hòa Xã hội Chủ nghĩa Việt Nam, là trái tim
+                    chính trị, văn hóa và trung tâm lớn về giáo dục, khoa học của cả nước.
+                    Thành phố hơn <strong>1.000 năm tuổi</strong> lưu giữ trong mình hàng trăm di tích
+                    lịch sử, công trình kiến trúc và danh lam thắng cảnh.
+                </p>
+                <div class="modal-facts">
+                    <div class="fact">
+                        <div class="f-label">Dân số</div>
+                        <div class="f-val">~ 8,5 triệu người</div>
+                    </div>
+                    <div class="fact">
+                        <div class="f-label">Diện tích</div>
+                        <div class="f-val">3.358,6 km²</div>
+                    </div>
+                    <div class="fact">
+                        <div class="f-label">Thành lập</div>
+                        <div class="f-val">1010 (Thăng Long)</div>
+                    </div>
+                    <div class="fact">
+                        <div class="f-label">Khí hậu</div>
+                        <div class="f-val">Nhiệt đới gió mùa</div>
+                    </div>
+                </div>
+                <div class="modal-spots-title">🌟 Điểm tham quan nổi bật:</div>
+                <div class="spots-tags">
+                    <span>🏯 Văn Miếu – Quốc Tử Giám</span>
+                    <span>🌊 Hồ Hoàn Kiếm</span>
+                    <span>🏛️ Lăng Chủ tịch Hồ Chí Minh</span>
+                    <span>🕌 Tháp Rùa</span>
+                    <span>🎪 Phố cổ Hà Nội 36 phố phường</span>
+                    <span>🌸 Hồ Tây</span>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- MODAL – ĐÀ NẴNG -->
-<div class="location-modal" id="modal-danang">
-    <div class="modal-box">
-        <div class="modal-header danang">
-            <a href="#" class="modal-close" title="Đóng">✕</a>
-            <span class="modal-icon">🌉</span>
-            <h2>Đà Nẵng</h2>
-            <div class="city-sub">Thành phố biển · Miền Trung · 16°04'B – 108°13'Đ</div>
-        </div>
-        <div class="modal-body">
-            <p class="modal-desc">
-                Đà Nẵng – thành phố đáng sống nhất Việt Nam, nằm bên bờ biển Đông thơ mộng.
-                Với những cây cầu hiện đại, bãi biển trải dài và núi Ngũ Hành Sơn huyền bí,
-                Đà Nẵng là điểm đến thu hút <strong>hàng triệu du khách</strong> mỗi năm.
-            </p>
-            <div class="modal-facts">
-                <div class="fact">
-                    <div class="f-label">Dân số</div>
-                    <div class="f-val">~ 1,3 triệu người</div>
-                </div>
-                <div class="fact">
-                    <div class="f-label">Diện tích</div>
-                    <div class="f-val">1.285,4 km²</div>
-                </div>
-                <div class="fact">
-                    <div class="f-label">Bờ biển</div>
-                    <div class="f-val">92 km</div>
-                </div>
-                <div class="fact">
-                    <div class="f-label">Khí hậu</div>
-                    <div class="f-val">Nhiệt đới gió mùa</div>
-                </div>
+    <!-- MODAL – ĐÀ NẴNG -->
+    <div class="location-modal" id="modal-danang">
+        <div class="modal-box">
+            <div class="modal-header danang">
+                <a href="#" class="modal-close" title="Đóng">✕</a>
+                <span class="modal-icon">🌉</span>
+                <h2>Đà Nẵng</h2>
+                <div class="city-sub">Thành phố biển · Miền Trung · 16°04'B – 108°13'Đ</div>
             </div>
-            <div class="modal-spots-title">🌟 Điểm tham quan nổi bật:</div>
-            <div class="spots-tags">
-                <span>🌉 Cầu Rồng phun lửa</span>
-                <span>⛰️ Bán đảo Sơn Trà</span>
-                <span>🏖️ Bãi biển Mỹ Khê</span>
-                <span>🗻 Ngũ Hành Sơn</span>
-                <span>🌁 Cầu Vàng Ba Na Hills</span>
-                <span>🏛️ Bảo tàng Chăm</span>
+            <div class="modal-body">
+                <p class="modal-desc">
+                    Đà Nẵng – thành phố đáng sống nhất Việt Nam, nằm bên bờ biển Đông thơ mộng.
+                    Với những cây cầu hiện đại, bãi biển trải dài và núi Ngũ Hành Sơn huyền bí,
+                    Đà Nẵng là điểm đến thu hút <strong>hàng triệu du khách</strong> mỗi năm.
+                </p>
+                <div class="modal-facts">
+                    <div class="fact">
+                        <div class="f-label">Dân số</div>
+                        <div class="f-val">~ 1,3 triệu người</div>
+                    </div>
+                    <div class="fact">
+                        <div class="f-label">Diện tích</div>
+                        <div class="f-val">1.285,4 km²</div>
+                    </div>
+                    <div class="fact">
+                        <div class="f-label">Bờ biển</div>
+                        <div class="f-val">92 km</div>
+                    </div>
+                    <div class="fact">
+                        <div class="f-label">Khí hậu</div>
+                        <div class="f-val">Nhiệt đới gió mùa</div>
+                    </div>
+                </div>
+                <div class="modal-spots-title">🌟 Điểm tham quan nổi bật:</div>
+                <div class="spots-tags">
+                    <span>🌉 Cầu Rồng phun lửa</span>
+                    <span>⛰️ Bán đảo Sơn Trà</span>
+                    <span>🏖️ Bãi biển Mỹ Khê</span>
+                    <span>🗻 Ngũ Hành Sơn</span>
+                    <span>🌁 Cầu Vàng Ba Na Hills</span>
+                    <span>🏛️ Bảo tàng Chăm</span>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- MODAL – HỒ CHÍ MINH -->
-<div class="location-modal" id="modal-hcmc">
-    <div class="modal-box">
-        <div class="modal-header hcmc">
-            <a href="#" class="modal-close" title="Đóng">✕</a>
-            <span class="modal-icon">🌆</span>
-            <h2>TP. Hồ Chí Minh</h2>
-            <div class="city-sub">Hòn ngọc Viễn Đông · Miền Nam · 10°46'B – 106°42'Đ</div>
-        </div>
-        <div class="modal-body">
-            <p class="modal-desc">
-                TP. Hồ Chí Minh (Sài Gòn) – thành phố lớn nhất Việt Nam, trung tâm kinh tế,
-                thương mại sầm uất của cả nước. Nơi đây là sự giao thoa giữa hiện đại và truyền thống,
-                nơi những tòa nhà chọc trời đứng cạnh những ngôi chùa <strong>hàng trăm năm tuổi</strong>.
-            </p>
-            <div class="modal-facts">
-                <div class="fact">
-                    <div class="f-label">Dân số</div>
-                    <div class="f-val">~ 13 triệu người</div>
-                </div>
-                <div class="fact">
-                    <div class="f-label">Diện tích</div>
-                    <div class="f-val">2.061,3 km²</div>
-                </div>
-                <div class="fact">
-                    <div class="f-label">GDP</div>
-                    <div class="f-val">30% cả nước</div>
-                </div>
-                <div class="fact">
-                    <div class="f-label">Khí hậu</div>
-                    <div class="f-val">Nhiệt đới, 2 mùa</div>
-                </div>
+    <!-- MODAL – HỒ CHÍ MINH -->
+    <div class="location-modal" id="modal-hcmc">
+        <div class="modal-box">
+            <div class="modal-header hcmc">
+                <a href="#" class="modal-close" title="Đóng">✕</a>
+                <span class="modal-icon">🌆</span>
+                <h2>TP. Hồ Chí Minh</h2>
+                <div class="city-sub">Hòn ngọc Viễn Đông · Miền Nam · 10°46'B – 106°42'Đ</div>
             </div>
-            <div class="modal-spots-title">🌟 Điểm tham quan nổi bật:</div>
-            <div class="spots-tags">
-                <span>🏛️ Dinh Độc Lập</span>
-                <span>⛪ Nhà thờ Đức Bà</span>
-                <span>📮 Bưu điện Trung tâm</span>
-                <span>🌃 Phố đi bộ Nguyễn Huệ</span>
-                <span>🛕 Chùa Ngọc Hoàng</span>
-                <span>🏙️ Landmark 81</span>
+            <div class="modal-body">
+                <p class="modal-desc">
+                    TP. Hồ Chí Minh (Sài Gòn) – thành phố lớn nhất Việt Nam, trung tâm kinh tế,
+                    thương mại sầm uất của cả nước. Nơi đây là sự giao thoa giữa hiện đại và truyền thống,
+                    nơi những tòa nhà chọc trời đứng cạnh những ngôi chùa <strong>hàng trăm năm tuổi</strong>.
+                </p>
+                <div class="modal-facts">
+                    <div class="fact">
+                        <div class="f-label">Dân số</div>
+                        <div class="f-val">~ 13 triệu người</div>
+                    </div>
+                    <div class="fact">
+                        <div class="f-label">Diện tích</div>
+                        <div class="f-val">2.061,3 km²</div>
+                    </div>
+                    <div class="fact">
+                        <div class="f-label">GDP</div>
+                        <div class="f-val">30% cả nước</div>
+                    </div>
+                    <div class="fact">
+                        <div class="f-label">Khí hậu</div>
+                        <div class="f-val">Nhiệt đới, 2 mùa</div>
+                    </div>
+                </div>
+                <div class="modal-spots-title">🌟 Điểm tham quan nổi bật:</div>
+                <div class="spots-tags">
+                    <span>🏛️ Dinh Độc Lập</span>
+                    <span>⛪ Nhà thờ Đức Bà</span>
+                    <span>📮 Bưu điện Trung tâm</span>
+                    <span>🌃 Phố đi bộ Nguyễn Huệ</span>
+                    <span>🛕 Chùa Ngọc Hoàng</span>
+                    <span>🏙️ Landmark 81</span>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- ===== MAP CONTENT ===== -->
-<div class="map-container">
+    <!-- ===== MAP CONTENT ===== -->
+    <div class="map-container">
 
-    <div class="map-layout">
+        <div class="map-layout">
 
-        <!-- ===== VIETNAM MAP WITH MARKERS ===== -->
-        <div class="map-svg-panel">
-            <div class="map-image-wrapper">
-                <img 
-                    src="img/iotlink-map4d-ban-do-ve-tinh-viet-nam-01.webp"
-                    alt="Bản đồ Việt Nam"
-                    style="object-fit: cover;
-                    object-position: 65% 30%;"
-                    >
-                
-                <!-- Markers Container -->
-                <div class="markers-container">
-                    
-                    <!-- HÀ NỘI Marker  -->
-                    <a href="#modal-hanoi" class="map-marker" style="top: 22%; left: 48%;" title="Hà Nội">
-                        <div class="map-marker-inner">
-                            <div class="marker-ripple"></div>
-                            <div class="marker-pin"></div>
-                            <div class="marker-label">🏛️ Hà Nội</div>
-                        </div>
-                    </a>
-                    
-                    <!-- ĐÀ NẴNG Marker  -->
-                    <a href="#modal-danang" class="map-marker" style="top: 48%; left: 60%;" title="Đà Nẵng">
-                        <div class="map-marker-inner">
-                            <div class="marker-ripple"></div>
-                            <div class="marker-pin"></div>
-                            <div class="marker-label">🌉 Đà Nẵng</div>
-                        </div>
-                    </a>
-                    
-                    <!-- TP. HỒ CHÍ MINH Marker  -->
-                    <a href="#modal-hcmc" class="map-marker" style="top: 78%; left: 52%;" title="TP. Hồ Chí Minh">
-                        <div class="map-marker-inner">
-                            <div class="marker-ripple"></div>
-                            <div class="marker-pin"></div>
-                            <div class="marker-label">🌆 TP.HCM</div>
-                        </div>
-                    </a>
+            <!-- ===== VIETNAM MAP WITH MARKERS ===== -->
+            <div class="map-svg-panel">
+                <div class="map-image-wrapper">
+                    <img src="img/iotlink-map4d-ban-do-ve-tinh-viet-nam-01.webp" alt="Bản đồ Việt Nam" style="object-fit: cover;
+                    object-position: 65% 30%;">
 
+                    <!-- Markers Container -->
+                    <div class="markers-container">
+
+                        <!-- HÀ NỘI Marker  -->
+                        <a href="#modal-hanoi" class="map-marker" style="top: 22%; left: 48%;" title="Hà Nội">
+                            <div class="map-marker-inner">
+                                <div class="marker-ripple"></div>
+                                <div class="marker-pin"></div>
+                                <div class="marker-label">🏛️ Hà Nội</div>
+                            </div>
+                        </a>
+
+                        <!-- ĐÀ NẴNG Marker  -->
+                        <a href="#modal-danang" class="map-marker" style="top: 48%; left: 60%;" title="Đà Nẵng">
+                            <div class="map-marker-inner">
+                                <div class="marker-ripple"></div>
+                                <div class="marker-pin"></div>
+                                <div class="marker-label">🌉 Đà Nẵng</div>
+                            </div>
+                        </a>
+
+                        <!-- TP. HỒ CHÍ MINH Marker  -->
+                        <a href="#modal-hcmc" class="map-marker" style="top: 78%; left: 52%;" title="TP. Hồ Chí Minh">
+                            <div class="map-marker-inner">
+                                <div class="marker-ripple"></div>
+                                <div class="marker-pin"></div>
+                                <div class="marker-label">🌆 TP.HCM</div>
+                            </div>
+                        </a>
+
+                    </div>
                 </div>
-            </div>
-        </div><!-- end map-svg-panel -->
+            </div><!-- end map-svg-panel -->
 
-        <!-- ===== LEGEND PANEL ===== -->
-        <div class="map-legend-panel">
-            <div class="legend-title">📍 Ba Điểm Tham Quan</div>
-            <div class="legend-subtitle">Click vào thành phố bên dưới hoặc trên bản đồ để xem thông tin chi tiết</div>
+            <!-- ===== LEGEND PANEL ===== -->
+            <div class="map-legend-panel">
+                <div class="legend-title">📍 Ba Điểm Tham Quan</div>
+                <div class="legend-subtitle">Click vào thành phố bên dưới hoặc trên bản đồ để xem thông tin chi tiết
+                </div>
 
-            <div class="legend-card-wrap">
+                <div class="legend-card-wrap">
 
-                <a href="#modal-hanoi" class="legend-entry" data-target="modal-hanoi">
-                    <span class="leg-dot legend-dot-red"></span>
-                    <div class="leg-text">
-                        <h4>🏛️ Hà Nội</h4>
-                        <p>Thủ đô · Miền Bắc · Hơn 1.000 năm lịch sử</p>
-                    </div>
-                    <span style="margin-left:auto; color:var(--red); font-weight:700; font-size:1.1rem;">›</span>
-                </a>
+                    <a href="#modal-hanoi" class="legend-entry" data-target="modal-hanoi">
+                        <span class="leg-dot legend-dot-red"></span>
+                        <div class="leg-text">
+                            <h4>🏛️ Hà Nội</h4>
+                            <p>Thủ đô · Miền Bắc · Hơn 1.000 năm lịch sử</p>
+                        </div>
+                        <span style="margin-left:auto; color:var(--red); font-weight:700; font-size:1.1rem;">›</span>
+                    </a>
 
-                <a href="#modal-danang" class="legend-entry" data-target="modal-danang">
-                    <span class="leg-dot legend-dot-blue"></span>
-                    <div class="leg-text">
-                        <h4>🌉 Đà Nẵng</h4>
-                        <p>Thành phố biển · Miền Trung · Cầu Rồng – Cầu Vàng</p>
-                    </div>
-                    <span style="margin-left:auto; color:#1a5276; font-weight:700; font-size:1.1rem;">›</span>
-                </a>
+                    <a href="#modal-danang" class="legend-entry" data-target="modal-danang">
+                        <span class="leg-dot legend-dot-blue"></span>
+                        <div class="leg-text">
+                            <h4>🌉 Đà Nẵng</h4>
+                            <p>Thành phố biển · Miền Trung · Cầu Rồng – Cầu Vàng</p>
+                        </div>
+                        <span style="margin-left:auto; color:#1a5276; font-weight:700; font-size:1.1rem;">›</span>
+                    </a>
 
-                <a href="#modal-hcmc" class="legend-entry" data-target="modal-hcmc">
-                    <span class="leg-dot legend-dot-green"></span>
-                    <div class="leg-text">
-                        <h4>🌆 TP. Hồ Chí Minh</h4>
-                        <p>Hòn ngọc Viễn Đông · Miền Nam · Trung tâm kinh tế</p>
-                    </div>
-                    <span style="margin-left:auto; color:#1e8449; font-weight:700; font-size:1.1rem;">›</span>
-                </a>
+                    <a href="#modal-hcmc" class="legend-entry" data-target="modal-hcmc">
+                        <span class="leg-dot legend-dot-green"></span>
+                        <div class="leg-text">
+                            <h4>🌆 TP. Hồ Chí Minh</h4>
+                            <p>Hòn ngọc Viễn Đông · Miền Nam · Trung tâm kinh tế</p>
+                        </div>
+                        <span style="margin-left:auto; color:#1e8449; font-weight:700; font-size:1.1rem;">›</span>
+                    </a>
 
-            </div><!-- end legend-card-wrap -->
+                </div><!-- end legend-card-wrap -->
 
-            <!-- Quick fact strip -->
-            <div style="
+                <!-- Quick fact strip -->
+                <div style="
                 margin-top: 28px;
                 background: var(--white);
                 border: 1px solid var(--border);
                 border-radius: var(--radius);
                 padding: 18px 20px;
             ">
-                <div style="font-weight:800; font-size:0.9rem; margin-bottom:12px; color:var(--text);">
-                    🇻🇳 Thông Tin Nhanh Về Việt Nam
-                </div>
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-                    <div style="font-size:0.83rem; color:var(--text-muted);">
-                        <strong style="color:var(--text);">Thủ đô:</strong> Hà Nội
+                    <div style="font-weight:800; font-size:0.9rem; margin-bottom:12px; color:var(--text);">
+                        🇻🇳 Thông Tin Nhanh Về Việt Nam
                     </div>
-                    <div style="font-size:0.83rem; color:var(--text-muted);">
-                        <strong style="color:var(--text);">Dân số:</strong> ~100 triệu
-                    </div>
-                    <div style="font-size:0.83rem; color:var(--text-muted);">
-                        <strong style="color:var(--text);">Diện tích:</strong> 331.212 km²
-                    </div>
-                    <div style="font-size:0.83rem; color:var(--text-muted);">
-                        <strong style="color:var(--text);">Vùng:</strong> 34 tỉnh/TP
-                    </div>
-                    <div style="font-size:0.83rem; color:var(--text-muted);">
-                        <strong style="color:var(--text);">Ngôn ngữ:</strong> Tiếng Việt
-                    </div>
-                    <div style="font-size:0.83rem; color:var(--text-muted);">
-                        <strong style="color:var(--text);">Tiền tệ:</strong> VNĐ (đồng)
-                    </div>
-                </div>
-            </div>
-
-        </div><!-- end map-legend-panel -->
-
-    </div><!-- end map-layout -->
-
-    <!-- ===== BOTTOM INFO CARDS ===== -->
-    <div style="width:100%; margin-top: 8px;">
-        <div style="text-align:center; margin-bottom:28px;">
-            <h2 style="font-size:1.3rem; font-weight:800; color:var(--red);">Điểm Nổi Bật Mỗi Thành Phố</h2>
-            <div class="divider"></div>
-        </div>
-
-        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap:20px;">
-
-            <!-- Hanoi card -->
-            <div style="background:var(--white); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); border:1px solid var(--border);">
-                <div style="background:linear-gradient(135deg,#c0392b,#922b21); color:white; padding:20px 22px 16px; display:flex; align-items:center; gap:12px;">
-                    <span style="font-size:2rem;">🏛️</span>
-                    <div>
-                        <div style="font-weight:800; font-size:1rem;">Hà Nội</div>
-                        <div style="opacity:0.8; font-size:0.78rem;">Thủ đô · Miền Bắc</div>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                        <div style="font-size:0.83rem; color:var(--text-muted);">
+                            <strong style="color:var(--text);">Thủ đô:</strong> Hà Nội
+                        </div>
+                        <div style="font-size:0.83rem; color:var(--text-muted);">
+                            <strong style="color:var(--text);">Dân số:</strong> ~100 triệu
+                        </div>
+                        <div style="font-size:0.83rem; color:var(--text-muted);">
+                            <strong style="color:var(--text);">Diện tích:</strong> 331.212 km²
+                        </div>
+                        <div style="font-size:0.83rem; color:var(--text-muted);">
+                            <strong style="color:var(--text);">Vùng:</strong> 34 tỉnh/TP
+                        </div>
+                        <div style="font-size:0.83rem; color:var(--text-muted);">
+                            <strong style="color:var(--text);">Ngôn ngữ:</strong> Tiếng Việt
+                        </div>
+                        <div style="font-size:0.83rem; color:var(--text-muted);">
+                            <strong style="color:var(--text);">Tiền tệ:</strong> VNĐ (đồng)
+                        </div>
                     </div>
                 </div>
-                <div style="padding:18px 22px;">
-                    <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.75; margin-bottom:14px;">
-                        Thành phố với hơn 1.000 năm lịch sử, nơi lưu giữ bề dày văn hóa dân tộc qua những con phố cổ kính, hồ nước xanh mát và những công trình kiến trúc độc đáo.
-                    </p>
-                    <a href="#modal-hanoi" style="color:var(--red); font-weight:700; font-size:0.88rem; text-decoration:none; display:inline-flex; align-items:center; gap:5px;">
-                        Xem chi tiết →
-                    </a>
-                </div>
-            </div>
 
-            <!-- Da Nang card -->
-            <div style="background:var(--white); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); border:1px solid var(--border);">
-                <div style="background:linear-gradient(135deg,#1a5276,#0e3460); color:white; padding:20px 22px 16px; display:flex; align-items:center; gap:12px;">
-                    <span style="font-size:2rem;">🌉</span>
-                    <div>
-                        <div style="font-weight:800; font-size:1rem;">Đà Nẵng</div>
-                        <div style="opacity:0.8; font-size:0.78rem;">Thành phố biển · Miền Trung</div>
-                    </div>
-                </div>
-                <div style="padding:18px 22px;">
-                    <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.75; margin-bottom:14px;">
-                        Thành phố trẻ năng động với Cầu Rồng phun lửa huyền ảo, bãi biển Mỹ Khê dài mướt và Cầu Vàng Ba Na Hills nổi tiếng thế giới.
-                    </p>
-                    <a href="#modal-danang" style="color:#1a5276; font-weight:700; font-size:0.88rem; text-decoration:none; display:inline-flex; align-items:center; gap:5px;">
-                        Xem chi tiết →
-                    </a>
-                </div>
-            </div>
+            </div><!-- end map-legend-panel -->
 
-            <!-- HCMC card -->
-            <div style="background:var(--white); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow-sm); border:1px solid var(--border);">
-                <div style="background:linear-gradient(135deg,#1e8449,#145a32); color:white; padding:20px 22px 16px; display:flex; align-items:center; gap:12px;">
-                    <span style="font-size:2rem;">🌆</span>
-                    <div>
-                        <div style="font-weight:800; font-size:1rem;">TP. Hồ Chí Minh</div>
-                        <div style="opacity:0.8; font-size:0.78rem;">Hòn ngọc Viễn Đông · Miền Nam</div>
-                    </div>
-                </div>
-                <div style="padding:18px 22px;">
-                    <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.75; margin-bottom:14px;">
-                        Trung tâm kinh tế sầm uất nhất Việt Nam, nơi giao thoa giữa hiện đại và cổ kính. Từ Dinh Độc Lập đến Landmark 81, thành phố không bao giờ ngủ.
-                    </p>
-                    <a href="#modal-hcmc" style="color:#1e8449; font-weight:700; font-size:0.88rem; text-decoration:none; display:inline-flex; align-items:center; gap:5px;">
-                        Xem chi tiết →
-                    </a>
-                </div>
-            </div>
+        </div><!-- end map-layout -->
 
-        </div>
-    </div><!-- end bottom cards -->
+    </div><!-- end map-container -->
 
-</div><!-- end map-container -->
-
-<!-- ===== FOOTER ===== -->
-<footer>
-    <div class="footer-logo">⭐ Cảnh Đẹp Việt Nam</div>
-    <p>Dự án học tập của <strong style="color:var(--gold-light)">Nhóm 2 · Lớp 12A55</strong></p>
-    <p style="margin-top:6px;">Được xây dựng bằng HTML &amp; CSS thuần · 2026</p>
-</footer>
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-logo">⭐ Cảnh Đẹp Việt Nam</div>
+        <p>Dự án học tập của <strong style="color:var(--gold-light)">Nhóm 2 · Lớp 12A55</strong></p>
+        <p style="margin-top:6px;">2026</p>
+    </footer>
 
 </body>
+
 </html>
